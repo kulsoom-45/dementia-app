@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlainTalk — Carer Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🗣️</span>
+                <span class="logo-text">PlainTalk</span>
+            </div>
+            <p class="sidebar-sub">Carer Dashboard</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <button class="nav-item active" data-section="reminders" onclick="showSection('reminders')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                Reminders
+            </button>
+            <button class="nav-item" data-section="music" onclick="showSection('music')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                Music
+            </button>
+            <button class="nav-item" data-section="reading" onclick="showSection('reading')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                Reading
+            </button>
+            <button class="nav-item" data-section="album" onclick="showSection('album')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                Album
+            </button>
+            <button class="nav-item" data-section="activity" onclick="showSection('activity')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+                Activity
+            </button>
+            <button class="nav-item" data-section="patientinfo" onclick="showSection('patientinfo')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Patient Info
+            </button>
+            <button class="nav-item" data-section="settings" onclick="showSection('settings')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Settings
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="index.html" class="view-patient-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View Patient Screen
+            </a>
+        </div>
+    </aside>
+
+    <!-- Mobile Toggle -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleSidebar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- ============ REMINDERS SECTION ============ -->
+        <section class="content-section active" id="section-reminders">
+            <div class="section-header">
+                <h1>⏰ Daily Reminders</h1>
+                <p>Set reminders that pop up on the patient's screen at the chosen time.</p>
+            </div>
+
+            <div class="card">
+                <h3>Add a Reminder</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Time</label>
+                        <input type="time" id="reminderTime" class="input">
+                    </div>
+                    <div class="form-group" style="flex:2">
+                        <label>What to remind</label>
+                        <input type="text" id="reminderText" class="input" placeholder="e.g. Take your medicine">
+                    </div>
+                    <button class="btn btn-primary" onclick="addReminder()" style="align-self:flex-end;">Add</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Today's Reminders</h3>
+                <div id="remindersList" class="reminders-list">
+                    <p class="empty-state">No reminders set yet.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MUSIC SECTION ============ -->
+        <section class="content-section" id="section-music">
+            <div class="section-header">
+                <h1>🎵 Music</h1>
+                <p>Choose a song for the patient to listen to.</p>
+            </div>
+
+            <div class="card">
+                <h3>Select a Song</h3>
+                <div class="song-options" id="songOptions">
+                    <label class="song-option">
+                        <input type="radio" name="song" value="0">
+                        <div class="song-card">
+                            <span class="song-emoji">🎵</span>
+                            <div>
+                                <strong>Calm Piano</strong>
+                                <p>Gentle piano melody for relaxation</p>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="song-option">
+                        <input type="radio" name="song" value="1">
+                        <div class="song-card">
+                            <span class="song-emoji">🎶</span>
+                            <div>
+                                <strong>Nature Sounds</strong>
+                                <p>Birdsong and flowing water</p>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="song-option">
+                        <input type="radio" name="song" value="2">
+                        <div class="song-card">
+                            <span class="song-emoji">🎹</span>
+                            <div>
+                                <strong>Classic Jazz</strong>
+                                <p>Smooth, relaxing jazz tune</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <button class="btn btn-primary" onclick="saveMusic()" style="margin-top:16px;">Save Selection</button>
+                <p class="save-confirm" id="musicSaveConfirm"></p>
+            </div>
+        </section>
+
+        <!-- ============ READING SECTION ============ -->
+        <section class="content-section" id="section-reading">
+            <div class="section-header">
+                <h1>📖 Reading</h1>
+                <p>Add newspaper articles (daytime) and children's stories (nighttime). Articles are auto-simplified using AI into plain, easy-to-read language.</p>
+            </div>
+
+            <!-- API Key -->
+            <div class="card">
+                <h3>🔑 OpenAI API Key</h3>
+                <p style="margin-bottom:12px;color:var(--text-muted);font-size:0.9rem;">Required for AI text simplification. Your key is stored locally and never shared.</p>
+                <div class="form-row">
+                    <div class="form-group" style="flex:3">
+                        <input type="password" id="apiKeyInput" class="input" placeholder="sk-...">
+                    </div>
+                    <button class="btn btn-secondary" onclick="saveApiKey()">Save Key</button>
+                </div>
+                <p class="save-confirm" id="apiKeySaveConfirm"></p>
+            </div>
+
+            <!-- Newspapers (Day) -->
+            <div class="card">
+                <h3>📰 Newspaper Articles (Day Mode)</h3>
+                <p style="margin-bottom:16px;color:var(--text-muted);font-size:0.9rem;">Paste an article and AI will simplify it into plain language.</p>
+
+                <div class="form-group">
+                    <label>Article Title</label>
+                    <input type="text" id="newsTitle" class="input" placeholder="e.g. Weather forecast for the week">
+                </div>
+                <div class="form-group">
+                    <label>Paste the article text</label>
+                    <textarea id="newsText" class="input textarea" rows="6" placeholder="Paste the full article here..."></textarea>
+                </div>
+                <div class="btn-row">
+                    <button class="btn btn-primary" onclick="simplifyAndAddNews()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        Simplify & Add
+                    </button>
+                </div>
+                <div id="newsSpinner" class="spinner-area" style="display:none;">
+                    <div class="spinner"></div>
+                    <span>Simplifying with AI...</span>
+                </div>
+
+                <div id="newsList" class="items-list" style="margin-top:20px;"></div>
+            </div>
+
+            <!-- Children's Books (Night) -->
+            <div class="card">
+                <h3>📖 Children's Stories (Night Mode)</h3>
+                <p style="margin-bottom:16px;color:var(--text-muted);font-size:0.9rem;">Add simple stories suitable for ages 3–6. These show when dark mode is active.</p>
+
+                <div class="form-group">
+                    <label>Story Title</label>
+                    <input type="text" id="bookTitle" class="input" placeholder="e.g. The Little Red Hen">
+                </div>
+                <div class="form-group">
+                    <label>Story Text</label>
+                    <textarea id="bookText" class="input textarea" rows="6" placeholder="Write or paste a simple story..."></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="addBook()">Add Story</button>
+
+                <div id="booksList" class="items-list" style="margin-top:20px;"></div>
+            </div>
+        </section>
+
+        <!-- ============ ALBUM SECTION ============ -->
+        <section class="content-section" id="section-album">
+            <div class="section-header">
+                <h1>📸 Photo Album</h1>
+                <p>Add photo URLs that the patient can view. Use image links from the web or hosted photos.</p>
+            </div>
+
+            <div class="card">
+                <h3>Add a Photo</h3>
+                <div class="form-row">
+                    <div class="form-group" style="flex:3">
+                        <label>Photo URL</label>
+                        <input type="url" id="photoUrl" class="input" placeholder="https://example.com/photo.jpg">
+                    </div>
+                    <button class="btn btn-primary" onclick="addPhoto()" style="align-self:flex-end;">Add</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Current Photos</h3>
+                <div id="photosList" class="photos-grid"></div>
+            </div>
+        </section>
+
+        <!-- ============ ACTIVITY SECTION ============ -->
+        <section class="content-section" id="section-activity">
+            <div class="section-header">
+                <h1>🎨 Activity</h1>
+                <p>Set a step-by-step activity. Write clear, simple instructions the patient will follow.</p>
+            </div>
+
+            <div class="card">
+                <div class="form-group">
+                    <label>Activity Name</label>
+                    <input type="text" id="activityTitle" class="input" placeholder="e.g. Painting a Flower">
+                </div>
+                <div class="form-group">
+                    <label>Steps (one per line)</label>
+                    <textarea id="activityStepsInput" class="input textarea" rows="8" placeholder="Get the paints from the cupboard beneath the mirror.
+Put newspaper on the table.
+Pick a colour you like.
+Paint something nice!
+Let it dry for 10 minutes.
+Show it to someone you love!"></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="saveActivity()">Save Activity</button>
+                <p class="save-confirm" id="activitySaveConfirm"></p>
+            </div>
+        </section>
+
+        <!-- ============ PATIENT INFO SECTION ============ -->
+        <section class="content-section" id="section-patientinfo">
+            <div class="section-header">
+                <h1>👤 Patient Info</h1>
+                <p>Record patient information for care and research purposes.</p>
+            </div>
+
+            <div class="card">
+                <h3>Patient Details</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="piName" class="input" placeholder="Eileen Smith">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" id="piAge" class="input" placeholder="80">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Diagnosis / Condition</label>
+                    <input type="text" id="piDiagnosis" class="input" placeholder="e.g. Early-stage dementia">
+                </div>
+                <div class="form-group">
+                    <label>Notes for Carers</label>
+                    <textarea id="piNotes" class="input textarea" rows="4" placeholder="Any important notes..."></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="savePatientInfo()">Save Info</button>
+                <p class="save-confirm" id="piSaveConfirm"></p>
+            </div>
+
+            <div class="card">
+                <h3>📊 App Usage (Research Data)</h3>
+                <p style="margin-bottom:16px;color:var(--text-muted);font-size:0.9rem;">Track which features are used most. This helps researchers understand patient engagement over time.</p>
+                <div class="usage-stats" id="usageStats">
+                    <div class="stat-bar">
+                        <span class="stat-label">Music</span>
+                        <div class="stat-track"><div class="stat-fill" id="statMusic" style="width:0%"></div></div>
+                        <span class="stat-val" id="statMusicVal">0</span>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-label">Photos</span>
+                        <div class="stat-track"><div class="stat-fill" id="statAlbum" style="width:0%"></div></div>
+                        <span class="stat-val" id="statAlbumVal">0</span>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-label">Activity</span>
+                        <div class="stat-track"><div class="stat-fill" id="statActivity" style="width:0%"></div></div>
+                        <span class="stat-val" id="statActivityVal">0</span>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-label">Reading</span>
+                        <div class="stat-track"><div class="stat-fill" id="statReading" style="width:0%"></div></div>
+                        <span class="stat-val" id="statReadingVal">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SETTINGS SECTION ============ -->
+        <section class="content-section" id="section-settings">
+            <div class="section-header">
+                <h1>⚙️ Settings</h1>
+                <p>Configure patient name and emergency contact.</p>
+            </div>
+
+            <div class="card">
+                <h3>General Settings</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Patient's First Name</label>
+                        <input type="text" id="settingName" class="input" placeholder="Eileen">
+                    </div>
+                    <div class="form-group">
+                        <label>Emergency Contact Phone</label>
+                        <input type="tel" id="settingPhone" class="input" placeholder="+44 1234 567 890">
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+                <p class="save-confirm" id="settingsSaveConfirm"></p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Reset All Data</h3>
+                <p style="margin-bottom:12px;color:var(--text-muted);font-size:0.9rem;">This will clear all saved data including reminders, reading material, and settings.</p>
+                <button class="btn btn-danger" onclick="resetAllData()">Reset Everything</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
